@@ -115,6 +115,7 @@
                                             <outlet property="ratingImageView" destination="FH3-V0-XIq" id="O0R-Uv-m45"/>
                                             <outlet property="reviewsCountLabel" destination="9pz-6A-dv9" id="MWH-i5-yZS"/>
                                             <outlet property="thumbImageView" destination="XZh-Xj-95I" id="bU6-u1-WXb"/>
+                                            <segue destination="5Lj-K8-K5W" kind="show" id="wbi-Ey-laH"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -140,6 +141,67 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Fgb-4b-F1b" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2091.304347826087" y="196.46739130434784"/>
+        </scene>
+        <!--Detailed View Controller-->
+        <scene sceneID="XzH-Bg-IQL">
+            <objects>
+                <viewController id="5Lj-K8-K5W" customClass="detailedViewController" customModule="Yelp" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Y6g-LN-dbo"/>
+                        <viewControllerLayoutGuide type="bottom" id="GGP-Bn-zEO"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="mbQ-vx-7nZ">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4co-aY-M8n">
+                                <rect key="frame" x="0.0" y="64" width="414" height="297"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Nifty 50 Cafe" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gst-lB-Sl0">
+                                <rect key="frame" x="20" y="369" width="374" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yb9-SE-l0w">
+                                <rect key="frame" x="20" y="399" width="112" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="73 Reviews" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lTr-da-3hn">
+                                <rect key="frame" x="140" y="399" width="87" height="27"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="$$" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rCc-tQ-dzC">
+                                <rect key="frame" x="20" y="428" width="87" height="27"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="IId-Y5-YnM">
+                                <rect key="frame" x="0.0" y="463" width="414" height="273"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </mapView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </view>
+                    <connections>
+                        <outlet property="backdropImageView" destination="4co-aY-M8n" id="fpg-Ag-h2y"/>
+                        <outlet property="mapView" destination="IId-Y5-YnM" id="Ojw-Yl-3aW"/>
+                        <outlet property="nameLabel" destination="gst-lB-Sl0" id="ZYt-L0-afq"/>
+                        <outlet property="priceLabel" destination="rCc-tQ-dzC" id="giL-Fg-SiI"/>
+                        <outlet property="ratingImageView" destination="yb9-SE-l0w" id="Vzd-bR-SbJ"/>
+                        <outlet property="reviewsCountLabel" destination="lTr-da-3hn" id="VDW-wP-tjJ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="w5u-yL-dBA" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2947.826086956522" y="195.6521739130435"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="M73-cw-VHY">
