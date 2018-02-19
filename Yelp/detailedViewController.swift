@@ -10,6 +10,7 @@
 
 import UIKit
 import MapKit
+import CoreLocation
 
 class detailedViewController: UIViewController {
 
@@ -19,13 +20,47 @@ class detailedViewController: UIViewController {
     @IBOutlet weak var reviewsCountLabel: UILabel!
     @IBOutlet weak var priceLabel: UILabel!
     @IBOutlet weak var mapView: MKMapView!
+    @IBOutlet weak var distanceLabel: UILabel!
+    @IBOutlet weak var addressLabel: UILabel!
+    @IBOutlet weak var categoriesLabel: UILabel!
+    
+    var backdropImageViewURL = URL(string: "google.com")
+    var nameStr = String()
+    var ratingImageViewURL = URL(string: "google.com")
+    var reviewsCountLabelStr = NSNumber()
+    var priceLabelStr = String()
+    var mapViewStr = String()
+    var distanceStr = String()
+    var addressStr = String()
+    var categoriesStr = String()
+    var lat = 0.0
+    var lon = 0.0
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        backdropImageView.setImageWith(backdropImageViewURL!)
+        nameLabel.text = nameStr
+        ratingImageView.setImageWith(ratingImageViewURL!)
+        distanceLabel.text = distanceStr
+        addressLabel.text = addressStr
+        categoriesLabel.text = categoriesStr
+        
+        
+        // address to location
+        var geocoder = CLGeocoder()
+        
+        geocoder.geocodeAddressString(addressStr) {
+            placemarks, error in
+            let placemark = placemarks?.first
+            self.lat = (placemark?.location?.coordinate.latitude)!
+            self.lon = (placemark?.location?.coordinate.longitude)!
+            print("Lat: \(self.lat), Lon: \(self.lon)")
+        }
+        
         // map
-        let centerLocation = CLLocation( latitude: 37.7833, longitude: -122.4167)
+        let centerLocation = CLLocation( latitude: self.lat, longitude: self.lon)
         goToLocation(location: centerLocation)
     }
 

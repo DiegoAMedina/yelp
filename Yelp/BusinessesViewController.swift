@@ -137,7 +137,25 @@ class BusinessesViewController: UIViewController, UITableViewDataSource, UITable
     }
     
     
-    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        let cell = sender as! UITableViewCell
+        
+        if let indexPath = tableView.indexPath(for: cell){
+            
+            let businessIndexPath = businesses[indexPath.row]
+            let detailViewController = segue.destination as! detailedViewController
+            
+            detailViewController.backdropImageViewURL = businessIndexPath.imageURL
+            detailViewController.nameStr = businessIndexPath.name!
+            detailViewController.ratingImageViewURL = businessIndexPath.ratingImageURL
+            detailViewController.addressStr = businessIndexPath.address!
+            detailViewController.distanceStr = businessIndexPath.distance!
+            detailViewController.categoriesStr = businessIndexPath.categories!
+         
+        }
+        
+    }
     
     
     
